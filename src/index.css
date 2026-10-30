@@ -1,0 +1,268 @@
+@import './styles/variables.css';
+
+/* Global Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dark Navy Background with Subtle Tactile Texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Flat near-black base with soft teal (left) and indigo (right) corner glows,
+     plus a very faint sparse particle layer. */
+  background-image:
+    radial-gradient(ellipse 60% 45% at 8% 30%, rgba(20, 184, 166, 0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 95% 12%, rgba(99, 102, 241, 0.14) 0%, transparent 70%),
+    radial-gradient(rgba(125, 211, 252, 0.10) 1px, transparent 1.5px);
+  background-size: auto, auto, 120px 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: none;
+}
+
+/* Page wrapper: clip decorative glows that extend past the viewport edge.
+   `clip` (unlike `hidden`) does not create a scroll container, so sticky/fixed
+   children such as the navbar keep working. */
+.gentro-landing-app {
+  position: relative;
+  overflow-x: clip;
+}
+
+/* Ambient Radial Glow Overlays */
+.ambient-glow-top {
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(37, 99, 235, 0.1) 35%, rgba(99, 102, 241, 0.08) 60%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-glow-mid {
+  position: absolute;
+  top: 45%;
+  right: -200px;
+  width: 750px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(37, 99, 235, 0.08) 40%, rgba(34, 211, 238, 0.05) 65%, transparent 75%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Anchor Offset for Fixed Navbar */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Reusable Typography & Badges */
+.gradient-text {
+  background: var(--gradient-gentro);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.gradient-tagline {
+  background: var(--gradient-tagline);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Eyebrow label: small, bold, uppercase sans in light sky-cyan (no pill) */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--eyebrow-color);
+  margin-bottom: 14px;
+}
+
+.section-tag.purple {
+  color: #c4b5fd;
+}
+
+.section-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan-primary);
+  box-shadow: 0 0 8px var(--cyan-primary);
+}
+
+.section-header {
+  text-align: left;
+  max-width: 880px;
+  margin: 0 0 48px 0;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-bright);
+  margin-bottom: 18px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* Card Foundations */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Reusable Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--gradient-cta);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(79, 91, 239, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(79, 91, 239, 0.5);
+  color: #ffffff;
+}
+
+/* Dark slate button with thin border (Ready to Scale secondary / nav CTA style) */
+.btn-secondary {
+  background: #111827;
+  color: var(--text-bright);
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-secondary:hover {
+  background: #1a2336;
+  border-color: rgba(125, 211, 252, 0.45);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Illustrative Notice Pill */
+.mockup-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2.15rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .section-subtitle {
+    font-size: 0.98rem;
+  }
+  .container {
+    padding: 0 18px;
+  }
+  .btn {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+  }
+}

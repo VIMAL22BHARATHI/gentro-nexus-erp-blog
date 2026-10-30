@@ -1,0 +1,100 @@
+.faq-section {
+  padding: 100px 0;
+  position: relative;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.5) 50%, transparent 100%);
+}
+
+.faq-accordion {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.faq-item.open {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.12);
+  background: rgba(14, 22, 54, 0.85);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  gap: 18px;
+}
+
+.faq-q-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.5;
+}
+
+.faq-toggle-icon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cyan-primary);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.faq-item.open .faq-toggle-icon {
+  background: var(--cyan-primary);
+  color: #030712;
+}
+
+.faq-answer-panel {
+  padding: 0 28px 24px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 18px;
+}
+
+.faq-answer-panel p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .faq-question-btn {
+    padding: 18px 20px;
+  }
+  .faq-q-text {
+    font-size: 0.95rem;
+  }
+  .faq-answer-panel {
+    padding: 0 20px 20px 20px;
+    padding-top: 14px;
+  }
+}

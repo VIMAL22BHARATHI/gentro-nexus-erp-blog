@@ -1,0 +1,166 @@
+.benefits-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.benefits-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.comparison-card {
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  position: relative;
+}
+
+.comparison-card.legacy {
+  background: rgba(14, 20, 40, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.comparison-card.gentro,
+.comparison-card.gentrobyte {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 211, 238, 0.1);
+}
+
+.card-header-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.legacy .card-header-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gentro .card-header-badge,
+.gentrobyte .card-header-badge {
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--cyan-light);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+}
+
+.comparison-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.legacy h3 {
+  color: var(--text-secondary);
+}
+
+.gentro h3,
+.gentrobyte h3 {
+  color: var(--text-bright);
+}
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.comp-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.legacy .comp-icon {
+  background: rgba(255, 77, 109, 0.15);
+  color: #ff4d6d;
+}
+
+.gentro .comp-icon,
+.gentrobyte .comp-icon {
+  background: rgba(0, 255, 170, 0.15);
+  color: #00ffaa;
+  border: 1px solid rgba(0, 255, 170, 0.3);
+}
+
+.comp-content h4 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.comp-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Operational Value Drivers Grid */
+.value-drivers-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.driver-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--transition-normal);
+}
+
+.driver-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.driver-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--cyan-primary);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.driver-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.driver-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .benefits-comparison {
+    grid-template-columns: 1fr;
+  }
+}
